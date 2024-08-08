@@ -1,0 +1,12 @@
+<form [formGroup]="todoForm" (ngSubmit)="addTodo()">
+  <div class="input-group input-group-sm mb-3">
+    <label class="input-group-text" for="description">Tarefa:</label>
+    <input
+      id="description"
+      formControlName="description"
+      placeholder="Digite a descrição"
+      class="form-control"
+    />
+    <button class="btn btn-primary" type="submit">Adicionar</button>
+  </div>
+</form>

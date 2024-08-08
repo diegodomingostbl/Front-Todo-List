@@ -1,0 +1,4 @@
+<div class="container">
+  <app-todo-form (save)="saveTodo($event)"></app-todo-form>
+  <app-todo-list [todoList]="todo" [doneList]="done"></app-todo-list>
+</div>

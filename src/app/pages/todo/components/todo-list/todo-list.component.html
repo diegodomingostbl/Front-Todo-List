@@ -1,0 +1,53 @@
+<div cdkDropListGroup>
+  <div class="todo-list__container">
+    <h2>Tarefas</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="todoList"
+      class="todo-list__container__list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (item of todoList; track item) {
+      <div class="todo-list__container__list__box" cdkDrag [cdkDragData]="item">
+        {{ item.description }}
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="removeTodo(item.id)"
+        >
+          Remover
+        </button>
+      </div>
+      }
+    </div>
+  </div>
+
+  <div class="todo-list__container">
+    <h2>Concluídas</h2>
+
+    <div
+      cdkDropList
+      [cdkDropListData]="doneList"
+      class="todo-list__container__list"
+      (cdkDropListDropped)="drop($event)"
+    >
+      @for (item of doneList; track item) {
+      <div
+        class="todo-list__container__list__box todo-list__container__list__box-done"
+        cdkDrag
+        [cdkDragData]="item"
+      >
+        {{ item.description }}
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="removeTodo(item.id)"
+        >
+          Remover
+        </button>
+      </div>
+      }
+    </div>
+  </div>
+</div>
